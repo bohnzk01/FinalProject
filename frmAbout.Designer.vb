@@ -98,7 +98,7 @@ Partial Class frmAbout
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "frmAbout"
-        Me.Text = "frmAbout"
+        Me.Text = "About"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

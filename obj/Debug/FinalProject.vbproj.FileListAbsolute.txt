@@ -9,3 +9,9 @@ D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.vbproj.Gener
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.exe
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.xml
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.pdb
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmAbout.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmDashboard.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmReports.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTask.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTaskScheule.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTaskTypes.resources

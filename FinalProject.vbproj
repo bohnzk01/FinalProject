@@ -72,10 +72,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTask.Designer.vb">
+      <DependentUpon>frmTask.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTask.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaskScheule.Designer.vb">
+      <DependentUpon>frmTaskScheule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaskScheule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaskTypes.Designer.vb">
+      <DependentUpon>frmTaskTypes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaskTypes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -95,6 +119,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTask.resx">
+      <DependentUpon>frmTask.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaskScheule.resx">
+      <DependentUpon>frmTaskScheule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaskTypes.resx">
+      <DependentUpon>frmTaskTypes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

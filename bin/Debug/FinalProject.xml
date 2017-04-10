@@ -22,5 +22,110 @@ FinalProject
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:FinalProject.MaintenanceDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TasksDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskScheduleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskTypesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TasksRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskScheduleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskTypesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TasksRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskScheduleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSet.TaskTypesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TasksTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TaskTypesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(FinalProject.MaintenanceDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(FinalProject.MaintenanceDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(FinalProject.MaintenanceDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.UpdateAll(FinalProject.MaintenanceDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:FinalProject.MaintenanceDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 </members>
 </doc>

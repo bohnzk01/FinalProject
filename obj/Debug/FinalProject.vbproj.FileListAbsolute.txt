@@ -15,3 +15,5 @@ D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmReports.r
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTask.resources
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTaskScheule.resources
 D:\School\IST 203 (Advanced VB)\FinalProject\obj\Debug\FinalProject.frmTaskTypes.resources
+D:\School\IST 203 (Advanced VB)\FinalProject\bin\Debug\Maintenance.mdf
+D:\School\IST 203 (Advanced VB)\FinalProject\bin\Debug\Maintenance_log.ldf

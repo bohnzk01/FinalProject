@@ -22,20 +22,31 @@ Partial Class frmTaskScheule
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cbTasks = New System.Windows.Forms.ComboBox()
         Me.dtpDueDate = New System.Windows.Forms.DateTimePicker()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.MaintenanceDataSet = New FinalProject.MaintenanceDataSet()
+        Me.TasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TasksTableAdapter = New FinalProject.MaintenanceDataSetTableAdapters.TasksTableAdapter()
+        Me.TaskScheduleTableAdapter1 = New FinalProject.MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter()
+        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbTasks
         '
+        Me.cbTasks.DataSource = Me.TasksBindingSource
+        Me.cbTasks.DisplayMember = "Name"
+        Me.cbTasks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbTasks.FormattingEnabled = True
         Me.cbTasks.Location = New System.Drawing.Point(135, 36)
         Me.cbTasks.Name = "cbTasks"
         Me.cbTasks.Size = New System.Drawing.Size(121, 21)
         Me.cbTasks.TabIndex = 0
+        Me.cbTasks.ValueMember = "Id"
         '
         'dtpDueDate
         '
@@ -71,6 +82,24 @@ Partial Class frmTaskScheule
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Due Date"
         '
+        'MaintenanceDataSet
+        '
+        Me.MaintenanceDataSet.DataSetName = "MaintenanceDataSet"
+        Me.MaintenanceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TasksBindingSource
+        '
+        Me.TasksBindingSource.DataMember = "Tasks"
+        Me.TasksBindingSource.DataSource = Me.MaintenanceDataSet
+        '
+        'TasksTableAdapter
+        '
+        Me.TasksTableAdapter.ClearBeforeFill = True
+        '
+        'TaskScheduleTableAdapter1
+        '
+        Me.TaskScheduleTableAdapter1.ClearBeforeFill = True
+        '
         'frmTaskScheule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -83,6 +112,8 @@ Partial Class frmTaskScheule
         Me.Controls.Add(Me.cbTasks)
         Me.Name = "frmTaskScheule"
         Me.Text = "Schedule Task"
+        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -93,4 +124,8 @@ Partial Class frmTaskScheule
     Friend WithEvents btnSave As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents MaintenanceDataSet As MaintenanceDataSet
+    Friend WithEvents TasksBindingSource As BindingSource
+    Friend WithEvents TasksTableAdapter As MaintenanceDataSetTableAdapters.TasksTableAdapter
+    Friend WithEvents TaskScheduleTableAdapter1 As MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter
 End Class

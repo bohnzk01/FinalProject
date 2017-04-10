@@ -130,7 +130,16 @@ SELECT Id, TaskID, DueDate, CompleteDate FROM TaskSchedule WHERE (Id = @Id)</Com
               <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
               <Mapping SourceColumn="CompleteDate" DataSetColumn="CompleteDate" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="MaintenanceConnectionString (MySettings)" DbObjectName="dbo.TaskSchedule" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIncomplete" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIncomplete" GeneratorSourceName="FillByIncomplete" GetMethodModifier="Public" GetMethodName="GetDataByIncomplete" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIncomplete" UserSourceName="FillByIncomplete">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Id, TaskID, DueDate, CompleteDate FROM dbo.TaskSchedule where completedate is null</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TaskTypesTableAdapter" GeneratorDataComponentClassName="TaskTypesTableAdapter" Name="TaskTypes" UserDataComponentName="TaskTypesTableAdapter">
             <MainSource>

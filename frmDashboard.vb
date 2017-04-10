@@ -25,11 +25,11 @@
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'MaintenanceDataSet.TaskSchedule' table. You can move, or remove it, as needed.
-        Me.TaskScheduleTableAdapter.Fill(Me.MaintenanceDataSet.TaskSchedule)
-
+        'Me.TaskScheduleTableAdapter.Fill(Me.MaintenanceDataSet.TaskSchedule)
+        Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.TaskScheduleTableAdapter.Fill(Me.MaintenanceDataSet.TaskSchedule)
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
+        Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
     End Sub
 End Class

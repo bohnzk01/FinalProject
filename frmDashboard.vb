@@ -24,9 +24,13 @@
     End Sub
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'MaintenanceDataSet.TaskSchedule' table. You can move, or remove it, as needed.
-        'Me.TaskScheduleTableAdapter.Fill(Me.MaintenanceDataSet.TaskSchedule)
         Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim DueDate As DateTime = Convert.ToDateTime(row.Cells(2).Value)
+            If DueDate < DateTime.Now() And row.Cells(2).Value IsNot Nothing Then
+                row.Cells(2).Style.BackColor = Color.Red
+            End If
+        Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) 

@@ -22,9 +22,9 @@ Public Class objTaskSchedule
     Public Function GetByDate(ByVal Type As String) As DataTable
         Dim table As DataTable = adapter.GetData()
         If Type = "PastDue" Then
-            table.DefaultView.RowFilter = "DueDate <= " & DateTime.Now '& " CompleteDate "
+            table.DefaultView.RowFilter = "DueDate <= #" & DateTime.Now & "#" & " and CompleteDate is null"
         ElseIf Type = "Upcoming" Then
-            'table.DefaultView.RowFilter = "CustId = " & custId
+            table.DefaultView.RowFilter = "DueDate > #" & DateTime.Now & "#" & " and CompleteDate is null"
         End If
         Return table
     End Function
@@ -41,11 +41,11 @@ Public Class objTaskSchedule
         End Try
     End Function
 
-    Public Function Update(ByVal typeId As Short, ByVal description As String, ByVal licensed As Boolean, ByVal custId As Short, ByVal Scheduled As DateTime, ByVal apptId As Integer) As Boolean
+    Public Function Update(ByVal Id As Int32, ByVal TaskID As Int32, ByVal DueDate As DateTime, ByVal CompleteDate As DateTime) As Boolean
         'Update a row into the Appointments tabe.  Return True if successful.  If an exception is thrown, LastError will hold an error message
         LastError = String.Empty
         Try
-            adapter.Update(typeId, description, licensed, custId, Scheduled, apptId)
+            adapter.Update(TaskID, DueDate, CompleteDate, Id)
             Return True
         Catch ex As Exception
             LastError = ex.Message
@@ -53,8 +53,8 @@ Public Class objTaskSchedule
         End Try
     End Function
 
-    Public Function Delete(ByVal apptId As Integer) As Boolean
-        Dim rowsAffected As Integer = adapter.Delete(apptId)
+    Public Function Delete(ByVal id As Integer) As Boolean
+        Dim rowsAffected As Integer = adapter.Delete(id)
         Return rowsAffected > 0
     End Function
 

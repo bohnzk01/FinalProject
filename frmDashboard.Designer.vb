@@ -39,18 +39,14 @@ Partial Class frmDashboard
         Me.rbUpcoming = New System.Windows.Forms.RadioButton()
         Me.rbPastDue = New System.Windows.Forms.RadioButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MaintenanceDataSet = New FinalProject.MaintenanceDataSet()
         Me.TaskScheduleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MaintenanceDataSet = New FinalProject.MaintenanceDataSet()
         Me.TaskScheduleTableAdapter = New FinalProject.MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TaskIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DueDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CompleteDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.gbStatus.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TaskScheduleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -163,6 +159,7 @@ Partial Class frmDashboard
         'rbPastDue
         '
         Me.rbPastDue.AutoSize = True
+        Me.rbPastDue.Checked = True
         Me.rbPastDue.Location = New System.Drawing.Point(19, 32)
         Me.rbPastDue.Name = "rbPastDue"
         Me.rbPastDue.Size = New System.Drawing.Size(69, 17)
@@ -173,53 +170,25 @@ Partial Class frmDashboard
         '
         'DataGridView1
         '
-        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.TaskIDDataGridViewTextBoxColumn, Me.DueDateDataGridViewTextBoxColumn, Me.CompleteDateDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.TaskScheduleBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(25, 281)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(665, 150)
         Me.DataGridView1.TabIndex = 5
-        '
-        'MaintenanceDataSet
-        '
-        Me.MaintenanceDataSet.DataSetName = "MaintenanceDataSet"
-        Me.MaintenanceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TaskScheduleBindingSource
         '
         Me.TaskScheduleBindingSource.DataMember = "TaskSchedule"
         Me.TaskScheduleBindingSource.DataSource = Me.MaintenanceDataSet
         '
+        'MaintenanceDataSet
+        '
+        Me.MaintenanceDataSet.DataSetName = "MaintenanceDataSet"
+        Me.MaintenanceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'TaskScheduleTableAdapter
         '
         Me.TaskScheduleTableAdapter.ClearBeforeFill = True
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TaskIDDataGridViewTextBoxColumn
-        '
-        Me.TaskIDDataGridViewTextBoxColumn.DataPropertyName = "TaskID"
-        Me.TaskIDDataGridViewTextBoxColumn.HeaderText = "TaskID"
-        Me.TaskIDDataGridViewTextBoxColumn.Name = "TaskIDDataGridViewTextBoxColumn"
-        '
-        'DueDateDataGridViewTextBoxColumn
-        '
-        Me.DueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate"
-        Me.DueDateDataGridViewTextBoxColumn.HeaderText = "DueDate"
-        Me.DueDateDataGridViewTextBoxColumn.Name = "DueDateDataGridViewTextBoxColumn"
-        '
-        'CompleteDateDataGridViewTextBoxColumn
-        '
-        Me.CompleteDateDataGridViewTextBoxColumn.DataPropertyName = "CompleteDate"
-        Me.CompleteDateDataGridViewTextBoxColumn.HeaderText = "CompleteDate"
-        Me.CompleteDateDataGridViewTextBoxColumn.Name = "CompleteDateDataGridViewTextBoxColumn"
         '
         'frmDashboard
         '
@@ -237,8 +206,8 @@ Partial Class frmDashboard
         Me.gbStatus.ResumeLayout(False)
         Me.gbStatus.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TaskScheduleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MaintenanceDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -263,8 +232,4 @@ Partial Class frmDashboard
     Friend WithEvents MaintenanceDataSet As MaintenanceDataSet
     Friend WithEvents TaskScheduleBindingSource As BindingSource
     Friend WithEvents TaskScheduleTableAdapter As MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TaskIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DueDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CompleteDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

@@ -10,7 +10,7 @@
     'x Display dashboard of incomplete tasks
     'x Indicate pastdue tasks
     '• Auto schedule reoccuring tasks
-
+    Private mTasks As New objTaskSchedule
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         frmAbout.ShowDialog()
@@ -37,7 +37,31 @@
     End Sub
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
+        DataGridView1.DataSource = mTasks.GetByDate("PastDue")
+        SetGridColor()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
+    End Sub
+
+    Private Sub rbPastDue_CheckedChanged(sender As Object, e As EventArgs) Handles rbPastDue.CheckedChanged
+        DataGridView1.DataSource = mTasks.GetByDate("PastDue")
+        SetGridColor()
+    End Sub
+
+    Private Sub rbUpcoming_CheckedChanged(sender As Object, e As EventArgs) Handles rbUpcoming.CheckedChanged
+        DataGridView1.DataSource = mTasks.GetByDate("Upcoming")
+        SetGridColor()
+    End Sub
+
+    Private Sub rbAll_CheckedChanged(sender As Object, e As EventArgs) Handles rbAll.CheckedChanged
+        DataGridView1.DataSource = mTasks.GetByDate("All")
+        SetGridColor()
+    End Sub
+
+    Private Sub SetGridColor()
         For Each row As DataGridViewRow In DataGridView1.Rows
             Dim DueDate As DateTime = Convert.ToDateTime(row.Cells(2).Value)
             If DueDate < DateTime.Now() And row.Cells(2).Value IsNot Nothing Then
@@ -46,7 +70,4 @@
         Next
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Me.TaskScheduleTableAdapter.FillByIncomplete(Me.MaintenanceDataSet.TaskSchedule)
-    End Sub
 End Class

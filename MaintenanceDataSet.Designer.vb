@@ -1845,11 +1845,16 @@ Namespace MaintenanceDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Id, Name, TypeID, Recurrence, RecurrenceUnit FROM dbo.Tasks"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT Id, Name, TypeID, Recurrence, RecurrenceUnit FROM dbo.Tasks WHERE ID=@ID"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1871,6 +1876,18 @@ Namespace MaintenanceDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As MaintenanceDataSet.TasksDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MaintenanceDataSet.TasksDataTable = New MaintenanceDataSet.TasksDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByID(ByVal ID As Integer) As MaintenanceDataSet.TasksDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
             Dim dataTable As MaintenanceDataSet.TasksDataTable = New MaintenanceDataSet.TasksDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2216,7 +2233,7 @@ Namespace MaintenanceDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Id, TaskID, DueDate, CompleteDate FROM dbo.TaskSchedule"
@@ -2226,6 +2243,11 @@ Namespace MaintenanceDataSetTableAdapters
             Me._commandCollection(1).CommandText = "SELECT Id, TaskID, DueDate, CompleteDate FROM dbo.TaskSchedule where completedate"& _ 
                 " is null"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT Id, TaskID, DueDate, CompleteDate FROM dbo.TaskSchedule WHERE ID = @ID"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2271,6 +2293,18 @@ Namespace MaintenanceDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByIncomplete() As MaintenanceDataSet.TaskScheduleDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Dim dataTable As MaintenanceDataSet.TaskScheduleDataTable = New MaintenanceDataSet.TaskScheduleDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByID(ByVal ID As Integer) As MaintenanceDataSet.TaskScheduleDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
             Dim dataTable As MaintenanceDataSet.TaskScheduleDataTable = New MaintenanceDataSet.TaskScheduleDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

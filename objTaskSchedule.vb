@@ -29,11 +29,11 @@ Public Class objTaskSchedule
         Return table
     End Function
 
-    Public Function Insert(ByVal TaskId As Int32, ByVal DueDate As DateTime, ByVal CompleteDate As DateTime) As Boolean
+    Public Function Insert(ByVal TaskId As Int32, ByVal DueDate As DateTime) As Boolean
         ' Insert a new row into the Appointments table.  Return True if successful.  If an exception is thrown, LastError will hold an error message.
         Try
             LastError = String.Empty
-            adapter.Insert(TaskId, DueDate, CompleteDate)
+            adapter.Insert(TaskId, DueDate, Nothing)
             Return True
         Catch ex As Exception
             LastError = ex.Message

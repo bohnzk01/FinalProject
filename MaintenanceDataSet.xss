@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Tasks" ZOrder="5" X="70" Y="70" Height="172" Width="176" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:TaskSchedule" ZOrder="4" X="316" Y="256" Height="172" Width="262" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:TaskSchedule" ZOrder="4" X="314" Y="256" Height="172" Width="262" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:TaskTypes" ZOrder="3" X="316" Y="70" Height="115" Width="204" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
   </Shapes>
   <Connectors>
@@ -34,7 +34,7 @@
           <Y>273</Y>
         </Point>
         <Point>
-          <X>316</X>
+          <X>314</X>
           <Y>273</Y>
         </Point>
       </RoutePoints>

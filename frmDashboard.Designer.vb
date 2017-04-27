@@ -39,9 +39,11 @@ Partial Class frmDashboard
         Me.rbUpcoming = New System.Windows.Forms.RadioButton()
         Me.rbPastDue = New System.Windows.Forms.RadioButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnComplete = New System.Windows.Forms.Button()
         Me.TaskScheduleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MaintenanceDataSet = New FinalProject.MaintenanceDataSet()
         Me.TaskScheduleTableAdapter = New FinalProject.MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter()
+        Me.TasksTableAdapter1 = New FinalProject.MaintenanceDataSetTableAdapters.TasksTableAdapter()
         Me.MenuStrip1.SuspendLayout()
         Me.gbStatus.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +56,7 @@ Partial Class frmDashboard
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(702, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(500, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -127,7 +129,7 @@ Partial Class frmDashboard
         Me.gbStatus.Controls.Add(Me.rbAll)
         Me.gbStatus.Controls.Add(Me.rbUpcoming)
         Me.gbStatus.Controls.Add(Me.rbPastDue)
-        Me.gbStatus.Location = New System.Drawing.Point(384, 79)
+        Me.gbStatus.Location = New System.Drawing.Point(25, 41)
         Me.gbStatus.Name = "gbStatus"
         Me.gbStatus.Size = New System.Drawing.Size(233, 62)
         Me.gbStatus.TabIndex = 2
@@ -170,11 +172,23 @@ Partial Class frmDashboard
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(25, 281)
+        Me.DataGridView1.Location = New System.Drawing.Point(25, 120)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(665, 150)
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(444, 150)
         Me.DataGridView1.TabIndex = 5
+        '
+        'btnComplete
+        '
+        Me.btnComplete.Location = New System.Drawing.Point(353, 63)
+        Me.btnComplete.Name = "btnComplete"
+        Me.btnComplete.Size = New System.Drawing.Size(116, 37)
+        Me.btnComplete.TabIndex = 6
+        Me.btnComplete.Text = "Complete Task"
+        Me.btnComplete.UseVisualStyleBackColor = True
         '
         'TaskScheduleBindingSource
         '
@@ -190,11 +204,16 @@ Partial Class frmDashboard
         '
         Me.TaskScheduleTableAdapter.ClearBeforeFill = True
         '
+        'TasksTableAdapter1
+        '
+        Me.TasksTableAdapter1.ClearBeforeFill = True
+        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(702, 526)
+        Me.ClientSize = New System.Drawing.Size(500, 293)
+        Me.Controls.Add(Me.btnComplete)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gbStatus)
         Me.Controls.Add(Me.MenuStrip1)
@@ -232,4 +251,6 @@ Partial Class frmDashboard
     Friend WithEvents MaintenanceDataSet As MaintenanceDataSet
     Friend WithEvents TaskScheduleBindingSource As BindingSource
     Friend WithEvents TaskScheduleTableAdapter As MaintenanceDataSetTableAdapters.TaskScheduleTableAdapter
+    Friend WithEvents btnComplete As Button
+    Friend WithEvents TasksTableAdapter1 As MaintenanceDataSetTableAdapters.TasksTableAdapter
 End Class

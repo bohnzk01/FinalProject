@@ -1,7 +1,7 @@
 ﻿Public Class frmDashboard
     'Instructor Requirements
     'x The application will include multiple forms.
-    '• Forms will incorporate as many controls as possible: buttons, text boxes, check boxes, labels, radio buttons, drop-down list, etc.
+    'x Forms will incorporate as many controls as possible: xbuttons, xtext boxes, check boxes, xlabels, xradio buttons, xdrop-down list, etc.
     'x Input validation to ensure that users have entered/selected required information. No processing occurs for invalid input.
     'x Persistent data (SQL Server Or SQLite Or text file)
     'x CRUD operations with data
@@ -9,7 +9,7 @@
     'Student Requirements
     'x Display dashboard of incomplete tasks
     'x Indicate pastdue tasks
-    '• Auto schedule reoccuring tasks
+    'x Auto schedule reoccuring tasks
     Private mTasks As New objTaskSchedule
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
@@ -70,4 +70,36 @@
         Next
     End Sub
 
+    Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
+        If IsNothing(DataGridView1.CurrentRow) Then
+            MessageBox.Show("no task selected")
+        Else
+            Dim completedtask As objTaskSchedule = New objTaskSchedule()
+            completedtask.Update(CInt(DataGridView1.CurrentRow.Cells("ID").Value), CInt(DataGridView1.CurrentRow.Cells("TaskID").Value), CDate(DataGridView1.CurrentRow.Cells("DueDate").Value), DateTime.Now)
+
+            Dim Task As DataTable = Me.TasksTableAdapter1.GetDataByID(CInt(DataGridView1.CurrentRow.Cells("TaskID").Value))
+            Dim ID As Integer = CInt(Task.Rows(0)("ID"))
+            Dim Name As String = CStr(Task.Rows(0)("Name"))
+            Dim TypeID As Integer = CInt(Task.Rows(0)("TypeID"))
+            Dim Recurrance As Integer = CInt(Task.Rows(0)("Recurrence"))
+            Dim RecurranceUnit As String = CStr(Task.Rows(0)("RecurrenceUnit"))
+
+            If Not String.IsNullOrEmpty(Recurrance.ToString()) Then
+                Dim newTaskSchedule As objTaskSchedule = New objTaskSchedule()
+
+                If RecurranceUnit.Trim = "Day" Then
+                    newTaskSchedule.Insert(ID, DateTime.Now.AddDays(Recurrance))
+                ElseIf RecurranceUnit.Trim = "Week" Then
+                    newTaskSchedule.Insert(ID, DateTime.Now.AddDays(Recurrance * 7))
+                ElseIf RecurranceUnit.Trim = "Month" Then
+                    newTaskSchedule.Insert(ID, DateTime.Now.AddMonths(Recurrance))
+                ElseIf RecurranceUnit.Trim = "Year" Then
+                    newTaskSchedule.Insert(ID, DateTime.Now.AddYears(Recurrance))
+                End If
+
+            End If
+            DataGridView1.DataSource = mTasks.GetByDate("All")
+            SetGridColor()
+        End If
+    End Sub
 End Class

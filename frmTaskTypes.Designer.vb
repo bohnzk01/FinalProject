@@ -73,7 +73,7 @@ Partial Class frmTaskTypes
         Me.gvTaskTypes.DataSource = Me.TaskTypesBindingSource
         Me.gvTaskTypes.Location = New System.Drawing.Point(23, 99)
         Me.gvTaskTypes.Name = "gvTaskTypes"
-        Me.gvTaskTypes.Size = New System.Drawing.Size(240, 136)
+        Me.gvTaskTypes.Size = New System.Drawing.Size(249, 136)
         Me.gvTaskTypes.TabIndex = 0
         '
         'IdDataGridViewTextBoxColumn
